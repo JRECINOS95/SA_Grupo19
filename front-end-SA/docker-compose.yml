@@ -1,0 +1,10 @@
+version: '3'
+services: 
+    front-sa:
+        container_name: front-sa
+        restart: always
+        build: 
+            context: .
+            dockerfile: Dockerfile
+        ports: 
+            - "3000:3000"
