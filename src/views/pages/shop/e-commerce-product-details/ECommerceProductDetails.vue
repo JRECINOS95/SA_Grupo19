@@ -100,13 +100,15 @@
                 v-ripple.400="'rgba(255, 255, 255, 0.15)'"
                 variant="primary"
                 class="btn-cart mr-0 mr-sm-1 mb-1 mb-sm-0"
-                @click="handleCartActionClick(product)"
+                @click="addCarretilla(product)"
               >
                 <feather-icon
                   icon="ShoppingCartIcon"
                   class="mr-50"
                 />
-                <span>{{ product.isInCart ? 'View In Cart' : 'Agregar a la carretilla' }}</span>
+                <span>{{
+                  isCarretilla(product.id) ? 'View In Cart' : 'Agregar a la carretilla'
+                }}</span>
               </b-button>
               <b-dropdown
                 variant="outline-secondary"
@@ -177,6 +179,31 @@ export default {
 
     // SFC
     ECommerceProductDetailsItemFeatures,
+  },
+  methods: {
+    isCarretilla(id) {
+      const userCart = JSON.parse(localStorage.getItem('userCart'));
+      // eslint-disable-next-line no-restricted-syntax
+      for (const element of userCart) {
+        if (element.productId === id) return true;
+      }
+      return false;
+    },
+    addCarretilla(producto) {
+      if (this.isCarretilla(producto.id)) {
+        this.$router.replace('/checkout').then(() => {});
+      } else {
+        const userCart = JSON.parse(localStorage.getItem('userCart'));
+        userCart.push({
+          id: producto.id,
+          productId: producto.id,
+          product: producto,
+          qty: 1,
+        });
+        localStorage.setItem('userCart', JSON.stringify(userCart));
+        window.location.reload();
+      }
+    },
   },
   setup() {
     const { handleCartActionClick, toggleProductInWishlist } = useEcommerceUi();
