@@ -1,11 +1,7 @@
 import { Ability } from '@casl/ability';
 import { initialAbility } from './config';
 
-const existingAbility = [
-  {
-    action: 'manage',
-    subject: 'all',
-  },
-];
+const userData = JSON.parse(localStorage.getItem('userData'));
+const existingAbility = userData ? userData.ability : null;
 
 export default new Ability(existingAbility || initialAbility);

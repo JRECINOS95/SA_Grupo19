@@ -19,6 +19,8 @@ const router = new VueRouter({
       component: () => import('@/views/Home.vue'),
       meta: {
         pageTitle: 'Inicio',
+        resource: 'ANY',
+        action: 'manage',
         breadcrumb: [
           {
             text: 'Inicio',

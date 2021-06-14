@@ -8,7 +8,7 @@ import useJwt from '@/auth/jwt/useJwt';
 // eslint-disable-next-line arrow-body-style
 export const isUserLoggedIn = () => {
   return (
-    localStorage.getItem('userData') && localStorage.getItem(useJwt.jwtConfig.storageTokenKeyName)
+    localStorage.getItem('userData') // && localStorage.getItem(useJwt.jwtConfig.storageTokenKeyName)
   );
 };
 
@@ -25,8 +25,8 @@ export const getUserData = () => JSON.parse(localStorage.getItem('userData'));
  * @param {String} userRole Role of user
  */
 export const getHomeRouteForLoggedInUser = (userRole) => {
-  if (userRole === 'EDITORIAL') return '/';
-  if (userRole === 'ADMINISTRADOR') return '/';
-  if (userRole === 'CLIENTE') return '/'; // return { name: 'access-control' }
+  if (userRole === 'EDITORIAL') return '/libro';
+  if (userRole === 'ADMINISTRADOR') return '/user';
+  if (userRole === 'CLIENTE') return '/shop'; // return { name: 'access-control' }
   return { name: 'auth-login' };
 };

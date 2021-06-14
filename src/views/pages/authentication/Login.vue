@@ -237,15 +237,52 @@ export default {
             });
             const userData = resp.data;
             userData.password = this.password;
+            if (userData.rol === 'ADMINISTRADOR') {
+              userData.ability = [
+                {
+                  action: 'manage',
+                  subject: 'ADMIN',
+                },
+                {
+                  action: 'manage',
+                  subject: 'ANY',
+                },
+              ];
+            } else if (userData.rol === 'EDITORIAL') {
+              userData.ability = [
+                {
+                  action: 'manage',
+                  subject: 'EDITORIAL',
+                },
+                {
+                  action: 'manage',
+                  subject: 'ANY',
+                },
+              ];
+            } else {
+              userData.ability = [
+                {
+                  action: 'read',
+                  subject: 'ACL',
+                },
+                {
+                  action: 'read',
+                  subject: 'Auth',
+                },
+                {
+                  action: 'manage',
+                  subject: 'CLIENTE',
+                },
+                {
+                  action: 'manage',
+                  subject: 'ANY',
+                },
+              ];
+            }
             if (userData.validado === true) {
               localStorage.setItem('userData', JSON.stringify(userData));
               localStorage.setItem('userCart', JSON.stringify([]));
-              this.$ability.update([
-                {
-                  action: 'manage',
-                  subject: 'all',
-                },
-              ]);
+              this.$ability.update(userData.ability);
 
               this.$router.replace(getHomeRouteForLoggedInUser(userData.rol)).then(() => {
                 this.$toast({
