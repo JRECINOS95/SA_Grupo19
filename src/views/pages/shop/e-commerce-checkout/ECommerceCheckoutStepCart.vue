@@ -195,10 +195,10 @@ export default {
       this.total = 0;
       // eslint-disable-next-line no-restricted-syntax
       this.products.forEach((element) => {
-        this.precio += element.qty * element.product.precio;
-        this.impuestos += element.product.precio * 0.12;
+        this.precio += Math.round(element.qty * element.product.precio);
+        this.impuestos += Math.round(element.product.precio * 0.12);
       });
-      this.total = this.precio + this.impuestos;
+      this.total = Math.round(this.precio + this.impuestos);
       if (this.products.length !== 0) localStorage.setItem('userCart', JSON.stringify(this.products));
       else localStorage.setItem('userCart', JSON.stringify([]));
     },

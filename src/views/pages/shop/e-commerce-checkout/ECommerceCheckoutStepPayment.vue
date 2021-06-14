@@ -134,6 +134,7 @@ import {
   BFormInput,
   BButton,
 } from 'bootstrap-vue';
+import axios from 'axios';
 import ToastificationContent from '@core/components/toastification/ToastificationContent.vue';
 
 export default {
@@ -163,6 +164,7 @@ export default {
       libros: 0,
       usuario: null,
       cvv: '',
+      tarjeta: '1234987612340000',
       tipoPago: 'TARJETA_GUARDADA',
     };
   },
@@ -175,13 +177,31 @@ export default {
     this.libros = products.length;
     // eslint-disable-next-line no-restricted-syntax
     products.forEach((element) => {
-      this.precio += element.qty * element.product.precio;
-      this.impuestos += element.product.precio * 0.12;
+      this.precio += Math.round(element.qty * element.product.precio);
+      this.impuestos += Math.round(element.product.precio * 0.12);
     });
-    this.total = this.precio + this.impuestos;
+    this.total = Math.round(this.precio + this.impuestos);
   },
   methods: {
     guardarOrden() {
+      const dir = localStorage.getItem('userDirShop');
+      const products = JSON.parse(localStorage.getItem('userCart'));
+      const user = JSON.parse(localStorage.getItem('userData'));
+      products.forEach(async (element) => {
+        await axios.post('http://34.72.218.226:7060/compra', {
+          idLibro: element.id,
+          idUser: user.id,
+          cantidad: element.qty,
+          valorUnitario: element.product.precio,
+          valorImpuestos: element.product.precio * element.qty * 0.12,
+          valorFinal: (element.product.precio * element.qty * 0.12)
+                          + (element.product.precio * element.qty),
+          tipoPago: this.tipoPago,
+          tarjeta: this.tarjeta,
+          cvv: this.cvv,
+          direccion: dir,
+        });
+      });
       localStorage.setItem('userCart', JSON.stringify([]));
       localStorage.setItem('userDirShop', '');
       this.$router.replace('/shop').then(() => {
