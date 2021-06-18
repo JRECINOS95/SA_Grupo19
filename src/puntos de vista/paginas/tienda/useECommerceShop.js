@@ -12,6 +12,7 @@ export const useShopFiltersSortingAndPagination = () => {
     page: 1,
     perPage: 9,
   });
+  
 
   const filterOptions = {
     priceRangeDefined: [
