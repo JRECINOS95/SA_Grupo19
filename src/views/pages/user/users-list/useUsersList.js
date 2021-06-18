@@ -60,12 +60,15 @@ export default async function useUsersList() {
     if (role === 'ADMINISTRADOR') return 'primary';
     if (role === 'EDITORIAL') return 'warning';
     if (role === 'CLIENTE') return 'success';
+    
     return 'primary';
   };
 
   const resolveUserRoleIcon = (role) => {
     if (role === 'ADMINISTRADOR') return 'UserIcon';
+    
     if (role === 'EDITORIAL') return 'SettingsIcon';
+    
     if (role === 'CLIENTE') return 'DatabaseIcon';
     return 'UserIcon';
   };
