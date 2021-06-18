@@ -16,6 +16,7 @@ pipeline {
                 echo 'Testing..'
             }
         }
+	    
         stage('Despliegue') {
             steps {
                 echo 'Deploying....'
