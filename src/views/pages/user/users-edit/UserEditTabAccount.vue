@@ -45,7 +45,6 @@
       </div> -->
     </b-media>
 
-
     <!-- User Info: Input Fields -->
     <b-form>
       <b-row>
@@ -131,7 +130,6 @@
           </b-form-group>
         </b-col>
 
-
         <!-- Field: Email -->
         <b-col
           cols="12"
@@ -148,7 +146,6 @@
             />
           </b-form-group>
         </b-col>
-
 
         <!-- Field: Status -->
         <b-col
@@ -202,7 +199,6 @@
           </b-form-group>
         </b-col>
 
-
         <!-- Field: Direccion -->
         <b-col
           v-if="userData.rol === 'EDITORIAL'"
@@ -221,7 +217,6 @@
         </b-col>
       </b-row>
     </b-form>
-
 
     <!-- PERMISSION TABLE -->
     <!-- <b-card
@@ -252,7 +247,6 @@
       </b-table>
     </b-card> -->
 
-
     <!-- Action Buttons -->
     <b-button
       variant="primary"
@@ -271,7 +265,6 @@
     </b-button>
   </div>
 </template>
-
 
 <script>
 import {
@@ -294,7 +287,6 @@ import vSelect from 'vue-select';
 import { useInputImageRenderer } from '@core/comp-functions/forms/form-utils';
 import { ref } from '@vue/composition-api';
 import ToastificationContent from '@core/components/toastification/ToastificationContent.vue';
-
 
 export default {
   components: {

@@ -33,7 +33,6 @@
                 </b-dropdown-item>
               </b-dropdown>
 
-
               <!-- Item View Radio Button Group  -->
               <b-form-radio-group
                 v-model="itemView"
@@ -82,7 +81,6 @@
         </b-col>
       </b-row>
     </div>
-
 
     <!-- Prodcuts -->
     <section :class="itemView">
@@ -158,7 +156,6 @@
       </b-card>
     </section>
 
-
     <!-- Pagination -->
     <section>
       <b-row>
@@ -189,7 +186,6 @@
         </b-col>
       </b-row>
     </section>
-
 
     <!-- Sidebar -->
     <portal to="content-renderer-sidebar-detached-left">
@@ -230,7 +226,6 @@ import { useRouter } from '@core/utils/utils';
 import { useShopFiltersSortingAndPagination, useShopUi } from './useECommerceShop';
 import ShopLeftFilterSidebar from './ECommerceShopLeftFilterSidebar.vue';
 import { useEcommerceUi } from './useEcommerce';
-
 
 export default {
   directives: {
@@ -327,7 +322,6 @@ export default {
     };
 
     fetchShopProducts();
-
 
     watch(
       [filters, sortBy],

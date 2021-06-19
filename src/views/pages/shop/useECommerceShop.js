@@ -12,7 +12,6 @@ export const useShopFiltersSortingAndPagination = () => {
     page: 1,
     perPage: 9,
   });
-  
 
   const filterOptions = {
     priceRangeDefined: [
@@ -35,7 +34,6 @@ export const useShopFiltersSortingAndPagination = () => {
       'Comedia',
     ],
   };
-  
 
   // Sorting
   const sortBy = ref({ text: 'Featured', value: 'featured' });
@@ -66,7 +64,6 @@ export const useShopUi = () => {
   // Pagination count <= required by pagination component
   const totalProducts = ref(null);
 
-  
   return {
     itemView,
     itemViewOptions,
