@@ -57,7 +57,7 @@
               size="sm"
               class="ml-75"
               inline
-              @change="calcularMontos"
+              @change="agregarValor(product)"
             />
           </div>
           <span
@@ -189,6 +189,19 @@ export default {
     this.calcularMontos();
   },
   methods: {
+    agregarValor(product) {
+      // eslint-disable-next-line no-plusplus
+      for (let i = 0; i < this.products.length; i++) {
+        if (this.products[i].id === product.id) {
+          if (this.products[i].product.stock < product.qty) {
+            // eslint-disable-next-line operator-assignment
+            this.products[i].qty = this.products[i].qty - 1;
+          }
+          break;
+        }
+      }
+      this.calcularMontos();
+    },
     calcularMontos() {
       this.precio = 0;
       this.impuestos = 0;
