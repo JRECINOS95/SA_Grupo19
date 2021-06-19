@@ -39,6 +39,8 @@ const router = new VueRouter({
       name: 'pages-account-setting',
       component: () => import('@/views/pages/account-setting/AccountSetting.vue'),
       meta: {
+        resource: 'ANY',
+        action: 'manage',
         pageTitle: 'Account Settings',
         breadcrumb: [
           {
