@@ -21,6 +21,13 @@ export default [
     action: 'manage',
   },
   {
+    title: 'Solicitar Libros',
+    route: 'request',
+    icon: 'BookIcon',
+    resource: 'CLIENTE',
+    action: 'manage',
+  },
+  {
     title: 'Usuarios',
     icon: 'UserIcon',
     route: 'user',

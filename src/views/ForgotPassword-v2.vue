@@ -45,7 +45,8 @@
             ¿Has olvidado tu Contraseña? 🔒
           </b-card-title>
           <b-card-text class="mb-2">
-            Ingrese su correo electrónico y le enviaremos instrucciones para restablecer su contraseña
+            Ingrese su correo electrónico y le enviaremos
+            instrucciones para restablecer su contraseña
           </b-card-text>
 
           <!-- form -->
@@ -98,14 +99,14 @@
 
 <script>
 /* eslint-disable global-require */
-import { ValidationProvider, ValidationObserver } from 'vee-validate'
-import VuexyLogo from '@core/layouts/components/Logo.vue'
+import { ValidationProvider, ValidationObserver } from 'vee-validate';
+import VuexyLogo from '@core/layouts/components/Logo.vue';
 import {
   BRow, BCol, BLink, BCardTitle, BCardText, BImg, BForm, BFormGroup, BFormInput, BButton,
-} from 'bootstrap-vue'
-import { required, email } from '@validations'
-import store from '@/store/index'
-import ToastificationContent from '@core/components/toastification/ToastificationContent.vue'
+} from 'bootstrap-vue';
+import { required, email } from '@validations';
+import store from '@/store/index';
+import ToastificationContent from '@core/components/toastification/ToastificationContent.vue';
 
 export default {
   components: {
@@ -130,21 +131,21 @@ export default {
       // validation
       required,
       email,
-    }
+    };
   },
   computed: {
     imgUrl() {
       if (store.state.appConfig.layout.skin === 'dark') {
         // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-        this.sideImg = 'https://revista.storyous.es/wp-content/uploads/sites/2/2020/03/61f86bab-bigstock-concept-online-delivery-servic-279977533.jpg'
-        return this.sideImg
+        this.sideImg = 'https://revista.storyous.es/wp-content/uploads/sites/2/2020/03/61f86bab-bigstock-concept-online-delivery-servic-279977533.jpg';
+        return this.sideImg;
       }
-      return this.sideImg
+      return this.sideImg;
     },
   },
   methods: {
     validationForm() {
-      this.$refs.simpleRules.validate().then(success => {
+      this.$refs.simpleRules.validate().then((success) => {
         if (success) {
           this.$toast({
             component: ToastificationContent,
@@ -153,12 +154,12 @@ export default {
               icon: 'EditIcon',
               variant: 'success',
             },
-          })
+          });
         }
-      })
+      });
     },
   },
-}
+};
 </script>
 
 <style lang="scss">

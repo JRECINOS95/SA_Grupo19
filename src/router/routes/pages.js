@@ -83,6 +83,22 @@ export default [
     },
   },
   {
+    path: '/solicitar',
+    name: 'request',
+    component: () => import('@/views/pages/solicitud-libros/solicitarLibro.vue'),
+    meta: {
+      pageTitle: 'Solicitar Libros',
+      resource: 'CLIENTE',
+      action: 'manage',
+      breadcrumb: [
+        {
+          text: 'Solicitar Libros',
+          active: true,
+        },
+      ],
+    },
+  },
+  {
     path: '/book/edit/:id',
     name: 'apps-books-edit',
     component: () => import('@/views/pages/libros/libros-edit/BooksEdit.vue'),
