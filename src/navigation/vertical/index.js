@@ -41,4 +41,11 @@ export default [
     resource: 'ADMIN',
     action: 'manage',
   },
+  {
+    title: 'Solicitudes de Libros',
+    icon: 'FilePlusIcon',
+    route: 'solicitudes',
+    resource: 'EDITORIAL',
+    action: 'manage',
+  },
 ];

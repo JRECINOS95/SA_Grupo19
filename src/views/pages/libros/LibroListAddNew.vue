@@ -242,6 +242,14 @@ export default {
     prop: 'isAddNewUserSidebarActive',
     event: 'update:is-add-new-user-sidebar-active',
   },
+  model: {
+    prop: 'nombre',
+    event: 'update:nombre',
+  },
+  model: {
+    prop: 'autor',
+    event: 'update:autor',
+  },
   props: {
     isAddNewUserSidebarActive: {
       type: Boolean,
@@ -251,6 +259,21 @@ export default {
       type: Array,
       required: true,
     },
+    nombre: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    autor: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    idSolicitud: {
+      type: Number,
+      required: false,
+      default: -1
+    }
   },
   data() {
     return {
@@ -289,31 +312,57 @@ export default {
       resetForm,
     };
   },
+  updated(){
+    this.bookData.nombre = this.nombre;
+    this.bookData.autor = this.autor;
+  },
   methods: {
     async validationForm() {
       try {
         const userData = JSON.parse(localStorage.getItem('userData'));
         this.bookData.idUser = userData.id;
         const resp = await axios.post('http://34.72.218.226:7070/libro', this.bookData);
-        // this.$router.replace('/libro').then(() => {
+
+        console.log(this.idSolicitud, userData.id)
+        if(this.idSolicitud!==-1){
+          await axios.put('http://34.72.218.226:7070/solicitud', {
+            idSolicitud : this.idSolicitud,
+            idEditorial : userData.id
+          });
+          this.$router.replace('/libro').then(() => {
+            this.$toast({
+              component: ToastificationContent,
+              props: {
+                title: 'Libro Ingresado',
+                icon: "SaveIcon",
+                variant: "info",
+                text: `Libro Solicitado Almacenado Correctamente!`,
+              },
+            });
+            this.$emit('refetch-data');
+            this.$emit('update:is-add-new-user-sidebar-active', false);
+          });
+      }else{
         this.$toast({
           component: ToastificationContent,
           props: {
             title: 'Libro Ingresado',
-            icon: 'EditIcon',
-            variant: 'success',
+            icon: 'SaveIcon',
+            variant: 'info',
+            text: `Libro Almacenado Correctamente!`
           },
         });
         this.$emit('refetch-data');
         this.$emit('update:is-add-new-user-sidebar-active', false);
-        // });
+      }
       } catch (err) {
         this.$toast({
           component: ToastificationContent,
           props: {
             title: 'Libro no se ha Registrado',
             icon: 'EditIcon',
-            variant: 'error',
+            variant: 'warning',
+            text: 'Error almacenando el libro!',
           },
         });
       }

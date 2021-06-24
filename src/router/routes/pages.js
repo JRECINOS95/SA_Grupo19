@@ -83,6 +83,22 @@ export default [
     component: () => import('@/views/ForgotPassword-v2.vue'),
   },
   {
+    path: '/solicitudes',
+    name: 'solicitudes',
+    component: () => import('@/views/pages/solicitud-libros/Solicitudes.vue'),
+    meta: {
+      pageTitle: 'Libros',
+      resource: 'EDITORIAL',
+      action: 'manage',
+      breadcrumb: [
+        {
+          text: 'Solicitudes de Libros',
+          active: true,
+        },
+      ],
+    },
+  },
+  {
     path: '/libro',
     name: 'book',
     component: () => import('@/views/pages/libros/Books.vue'),
