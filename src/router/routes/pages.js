@@ -30,6 +30,22 @@ export default [
     },
   },
   {
+    path: '/bitacora',
+    name: 'bitacora',
+    component: () => import('@/views/pages/bitacora/Bitacora.vue'),
+    meta: {
+      pageTitle: 'Libros',
+      resource: 'ADMIN',
+      action: 'manage',
+      breadcrumb: [
+        {
+          text: 'Bitacora Libros',
+          active: true,
+        },
+      ],
+    },
+  },
+  {
     path: '/user',
     name: 'user',
     component: () => import('@/views/pages/user/users-list/UsersList.vue'),

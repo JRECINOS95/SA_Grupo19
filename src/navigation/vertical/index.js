@@ -34,4 +34,11 @@ export default [
     resource: 'ADMIN',
     action: 'manage',
   },
+  {
+    title: 'Bitacora Libros',
+    icon: 'ListIcon',
+    route: 'bitacora',
+    resource: 'ADMIN',
+    action: 'manage',
+  },
 ];
