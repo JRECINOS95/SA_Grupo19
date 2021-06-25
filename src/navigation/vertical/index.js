@@ -48,4 +48,11 @@ export default [
     resource: 'EDITORIAL',
     action: 'manage',
   },
+  {
+    title: 'Impuestos',
+    icon: 'DivideSquareIcon',
+    route: 'impuestos',
+    resource: 'EDITORIAL',
+    action: 'manage',
+  },
 ];

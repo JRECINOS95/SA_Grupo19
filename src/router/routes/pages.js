@@ -146,6 +146,25 @@ export default [
     },
   },
   {
+    path: '/impuestos',
+    name: 'impuestos',
+    component: () => import('@/views/pages/impuestos/Impuestos.vue'),
+    meta: {
+      contentRenderer: 'sidebar-left-detached',
+      contentClass: 'ecommerce-application',
+      pageTitle: 'Compras',
+      resource: 'EDITORIAL',
+      action: 'manage',
+      breadcrumb: [
+        
+        {
+          text: 'Cálculo de Impuestos',
+          active: true,
+        },
+      ],
+    },
+  },
+  {
     path: '/shop',
     name: 'shop',
     component: () => import('@/views/pages/shop/ECommerceShop.vue'),
@@ -153,7 +172,7 @@ export default [
       contentRenderer: 'sidebar-left-detached',
       contentClass: 'ecommerce-application',
       pageTitle: 'Compras',
-      resource: 'CLIENTE',
+      resource: 'EDITORIAL',
       breadcrumb: [
         {
           text: 'Compras',
@@ -193,7 +212,7 @@ export default [
     meta: {
       pageTitle: 'Checkout',
       contentClass: 'ecommerce-application',
-      resource: 'CLIENTE',
+      resource: 'EDITORIAL',
       breadcrumb: [
         {
           text: 'ECommerce',
