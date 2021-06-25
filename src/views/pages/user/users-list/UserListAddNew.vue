@@ -351,7 +351,7 @@ export default {
   methods: {
     async validationForm() {
       try {
-        const resp = await axios.post('http://34.72.218.226:7000/usuario', this.userData);
+        const resp = await axios.post('http://35.209.82.125:7000/usuario', this.userData);
         this.$toast({
           component: ToastificationContent,
           props: {

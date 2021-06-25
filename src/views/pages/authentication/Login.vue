@@ -45,7 +45,10 @@
           <b-card-text class="mb-2">
             Ingresa con tu Usuario y Contraseña Registrados
           </b-card-text>
-
+          <div id="app">
+            <p>Full: {{ currentUrl }}</p>
+            <p>Host: {{ host }}</p>
+          </div>
           <!-- form -->
           <validation-observer
             ref="loginForm"
@@ -201,6 +204,8 @@ export default {
   mixins: [togglePasswordVisibility],
   data() {
     return {
+      currentUrl: location.toString(),
+      host: location.host,
       status: '',
       password: '',
       userEmail: '',
@@ -230,7 +235,7 @@ export default {
       this.$refs.loginForm.validate().then(async (success) => {
         if (success) {
           try {
-            const resp = await axios.post('http://34.72.218.226:7000/login', {
+            const resp = await axios.post('http://35.209.82.125:7000/login', {
               // DEBE SER GET EN LUGAR DE POST
               user: this.userEmail,
               password: this.password,

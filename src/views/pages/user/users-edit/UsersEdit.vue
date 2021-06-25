@@ -76,7 +76,7 @@ export default {
     });
 
     axios
-      .get(`http://34.72.218.226:7000/usuario/${router.currentRoute.params.id}`)
+      .get(`http://35.209.82.125:7000/usuario/${router.currentRoute.params.id}`)
       .then((response) => {
         userData.value = response.data;
       })

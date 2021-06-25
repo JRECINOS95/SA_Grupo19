@@ -399,7 +399,7 @@ export default {
     },
     async updateUser() {
       try {
-        const resp = await axios.put('http://34.72.218.226:7000/usuario', {
+        const resp = await axios.put('http://35.209.82.125:7000/usuario', {
           idUser: this.userData.id,
           primerNombre: this.userData.primer_nombre,
           segundoNombre: this.userData.segundo_nombre,

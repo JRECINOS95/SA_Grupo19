@@ -286,7 +286,7 @@ export default {
   },
   async beforeCreate() {
     try {
-      const resp = await axios.get('http://34.72.218.226:7000/usuario');
+      const resp = await axios.get('http://35.209.82.125:7000/usuario');
       this.usuarios = resp.data;
     } catch (err) {
       this.usuarios = [];
@@ -295,7 +295,7 @@ export default {
   methods: {
     async confirmarUsuario(id) {
       try {
-        const resp = await axios.put('http://34.72.218.226:7000/usuario/confirmar', {
+        const resp = await axios.put('http://35.209.82.125:7000/usuario/confirmar', {
           idUser: id,
         });
         window.location.reload();
@@ -314,7 +314,7 @@ export default {
     },
     async bajaUsuario(id) {
       try {
-        const resp = await axios.put('http://34.72.218.226:7000/usuario/baja', {
+        const resp = await axios.put('http://35.209.82.125:7000/usuario/baja', {
           idUser: id,
         });
         window.location.reload();
