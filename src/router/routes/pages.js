@@ -172,7 +172,7 @@ export default [
       contentRenderer: 'sidebar-left-detached',
       contentClass: 'ecommerce-application',
       pageTitle: 'Compras',
-      resource: 'EDITORIAL',
+      resource: 'CLIENTE',
       breadcrumb: [
         {
           text: 'Compras',
@@ -212,7 +212,7 @@ export default [
     meta: {
       pageTitle: 'Checkout',
       contentClass: 'ecommerce-application',
-      resource: 'EDITORIAL',
+      resource: 'CLIENTE',
       breadcrumb: [
         {
           text: 'ECommerce',
