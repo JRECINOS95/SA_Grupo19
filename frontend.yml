@@ -1,0 +1,11 @@
+
+- hosts: practica
+  become: True
+  tasks:
+    
+  - name: install nodejs
+    apt: name=nodejs update_cache=yes
+    become: yes
+
+  - name: nodejs version
+    action: command nodejs --version
