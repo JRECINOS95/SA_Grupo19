@@ -230,7 +230,7 @@ export default {
       this.$refs.loginForm.validate().then(async (success) => {
         if (success) {
           try {
-            const resp = await axios.post('http://35.209.82.125:7000/login', {
+            const resp = await axios.post('http://35.209.160.141:5050/grupo19/usuario/login', {
               // DEBE SER GET EN LUGAR DE POST
               user: this.userEmail,
               password: this.password,

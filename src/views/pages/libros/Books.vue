@@ -185,7 +185,7 @@ export default {
   async beforeCreate() {
     try {
       const userData = JSON.parse(localStorage.getItem('userData'));
-      const resp = await axios.get(`http://34.72.218.226:7070/libro/lista/${userData.id}`);
+      const resp = await axios.get(`http://35.209.160.141:5050/grupo19/librolist/${userData.id}`);
       this.usuarios = resp.data;
     } catch (err) {
       this.usuarios = [];

@@ -292,7 +292,7 @@ export default {
             direccion: this.direccion,
           };
           try {
-            const resp = await axios.post('http://35.209.82.125:7000/usuario', body);
+            const resp = await axios.post('http://35.209.160.141:5050/grupo19/user/register', body);
             this.$router.replace('/login').then(() => {
               this.$toast({
                 component: ToastificationContent,

@@ -321,7 +321,7 @@ export default {
       try {
         const userData = JSON.parse(localStorage.getItem('userData'));
         this.bookData.idUser = userData.id;
-        const resp = await axios.post('http://34.72.218.226:7070/libro', this.bookData);
+        const resp = await axios.post('http://35.209.160.141:5050/grupo19/libro/add', this.bookData);
 
         console.log(this.idSolicitud, userData.id)
         if(this.idSolicitud!==-1){

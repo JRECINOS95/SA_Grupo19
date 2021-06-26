@@ -188,7 +188,7 @@ export default {
       const products = JSON.parse(localStorage.getItem('userCart'));
       const user = JSON.parse(localStorage.getItem('userData'));
       products.forEach(async (element) => {
-        await axios.post('http://34.72.218.226:7060/compra', {
+        await axios.post('http://35.209.160.141:5050/grupo19/compra/ingresar', {
           idLibro: element.id,
           idUser: user.id,
           cantidad: element.qty,
