@@ -42,6 +42,13 @@ export default [
     action: 'manage',
   },
   {
+    title: 'Tracking',
+    icon: 'MapIcon',
+    route: 'tracking',
+    resource: 'ADMIN',
+    action: 'manage',
+  },
+  {
     title: 'Solicitudes de Libros',
     icon: 'FilePlusIcon',
     route: 'solicitudes',

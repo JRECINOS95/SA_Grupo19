@@ -46,6 +46,22 @@ export default [
     },
   },
   {
+    path: '/tracking',
+    name: 'tracking',
+    component: () => import('@/views/pages/tracking/Tracking.vue'),
+    meta: {
+      pageTitle: 'Libros',
+      resource: 'ADMIN',
+      action: 'manage',
+      breadcrumb: [
+        {
+          text: 'Segumiento de Compras',
+          active: true,
+        },
+      ],
+    },
+  },
+  {
     path: '/user',
     name: 'user',
     component: () => import('@/views/pages/user/users-list/UsersList.vue'),
