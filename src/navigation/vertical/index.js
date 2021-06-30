@@ -49,6 +49,13 @@ export default [
     action: 'manage',
   },
   {
+    title: 'Seguimiento Orden',
+    icon: 'MapIcon',
+    route: 'shop-tracking',
+    resource: 'CLIENTE',
+    action: 'manage',
+  },
+  {
     title: 'Solicitudes de Libros',
     icon: 'FilePlusIcon',
     route: 'solicitudes',

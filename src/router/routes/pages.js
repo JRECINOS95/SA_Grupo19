@@ -46,6 +46,22 @@ export default [
     },
   },
   {
+    path: '/shop_tracking',
+    name: 'shop-tracking',
+    component: () => import('@/views/pages/shop/Tracking.vue'),
+    meta: {
+      pageTitle: 'Libros',
+      resource: 'CLIENTE',
+      action: 'manage',
+      breadcrumb: [
+        {
+          text: 'Segumiento de Compras',
+          active: true,
+        },
+      ],
+    },
+  },
+  {
     path: '/tracking',
     name: 'tracking',
     component: () => import('@/views/pages/tracking/Tracking.vue'),
