@@ -55,6 +55,28 @@
               class="auth-login-form mt-2"
               @submit.prevent="login"
             >
+
+              <!-- GRUPO -->
+              <b-form-group
+                label="Seleccione el Servicio A Consumir"
+                label-for="grupo"
+              >
+                <validation-provider
+                  #default="{ errors }"
+                  name="Servicio A Consumir"
+                  vid="grupo"
+                  rules="required"
+                >
+                  <b-form-select
+                  v-model="grupo"
+                  :options="grupos"
+                  :state="grupo === '' ? false : true"
+                  name="register-rol"
+                />
+                  <small class="text-danger">{{ errors[0] }}</small>
+                </validation-provider>
+              </b-form-group>
+
               <!-- email -->
               <b-form-group
                 label="Correo Electrónico"
@@ -167,6 +189,7 @@ import {
   BForm,
   BButton,
   VBTooltip,
+  BFormSelect,
 } from 'bootstrap-vue';
 import { required, email } from '@validations';
 import { togglePasswordVisibility } from '@core/mixins/ui/forms';
@@ -197,10 +220,17 @@ export default {
     VuexyLogo,
     ValidationProvider,
     ValidationObserver,
+    BFormSelect,
   },
   mixins: [togglePasswordVisibility],
   data() {
     return {
+      grupos: [
+        { value: 'GRUPO17', text: 'Servicios Grupo 17' },
+        { value: 'GRUPO18', text: 'Servicios Grupo 18' },
+        { value: 'GRUPO19', text: 'Servicios Grupo 19' },
+      ],
+      grupo: 'GRUPO19',
       status: '',
       password: '',
       userEmail: '',
@@ -234,9 +264,11 @@ export default {
               // DEBE SER GET EN LUGAR DE POST
               user: this.userEmail,
               password: this.password,
+              grupo: this.grupo,
             });
             const userData = resp.data;
             userData.password = this.password;
+            userData.grupo = this.grupo;
             if (userData.rol === 'ADMINISTRADOR') {
               userData.ability = [
                 {

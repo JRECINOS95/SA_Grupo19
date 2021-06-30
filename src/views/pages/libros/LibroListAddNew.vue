@@ -321,6 +321,8 @@ export default {
       try {
         const userData = JSON.parse(localStorage.getItem('userData'));
         this.bookData.idUser = userData.id;
+        this.bookData.grupo = userData.grupo;
+        
         const resp = await axios.post('http://35.209.160.141:5050/grupo19/libro/add', this.bookData);
 
         console.log(this.idSolicitud, userData.id)

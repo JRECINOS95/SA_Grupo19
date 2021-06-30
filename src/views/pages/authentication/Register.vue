@@ -23,6 +23,27 @@
             class="auth-register-form mt-2"
             @submit.prevent="validationForm"
           >
+            <!-- GRUPO -->
+            <b-form-group
+              label="Seleccione el Servicio A Consumir"
+              label-for="grupo"
+              v-if="rol==='CLIENTE'"
+            >
+              <validation-provider
+                #default="{ errors }"
+                name="Servicio a Consumir"
+                rules="required"
+              >
+                <b-form-select
+                  v-model="grupo"
+                  :options="grupos"
+                  :state="grupo === '' ? false : true"
+                  name="register-rol"
+                />
+                <small class="text-danger">{{ errors[0] }}</small>
+              </validation-provider>
+            </b-form-group>
+
             <!-- ROL -->
             <b-form-group
               label="Tipo de Usuario"
@@ -257,8 +278,14 @@ export default {
         { value: 'CLIENTE', text: 'Usuario Cliente' },
         { value: 'EDITORIAL', text: 'Usuario Editorial' },
       ],
+      grupos: [
+        { value: 'GRUPO17', text: 'Servicios Grupo 17' },
+        { value: 'GRUPO18', text: 'Servicios Grupo 18' },
+        { value: 'GRUPO19', text: 'Servicios Grupo 19' },
+      ],
       username: '',
       password: '',
+      grupo: 'GRUPO19',
       // validation rules
       required,
       telefono: '',
@@ -290,6 +317,7 @@ export default {
             password: this.password,
             telefono: phone,
             direccion: this.direccion,
+            grupo: this.rol === 'CLIENTE' ? this.grupo : "GRUPO19",
           };
           try {
             const resp = await axios.post('http://35.209.160.141:5050/grupo19/user/register', body);
