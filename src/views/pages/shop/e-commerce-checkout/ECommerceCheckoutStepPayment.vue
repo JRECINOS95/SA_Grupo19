@@ -200,6 +200,7 @@ export default {
           tarjeta: this.tarjeta,
           cvv: this.cvv,
           direccion: dir,
+          grupo: user.grupo,
         });
       });
       localStorage.setItem('userCart', JSON.stringify([]));

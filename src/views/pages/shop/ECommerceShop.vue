@@ -260,7 +260,8 @@ export default {
   },
   async beforeCreate() {
     try {
-      const resp = await axios.get('http://34.72.218.226:7070/libro/stock');
+      const userData = JSON.parse(localStorage.getItem('userData'));
+      const resp = await axios.get(`http://35.209.160.141:5050/grupo19/librolist/${userData.grupo}`);
       this.products = resp.data;
     } catch (err) {
       this.products = [];

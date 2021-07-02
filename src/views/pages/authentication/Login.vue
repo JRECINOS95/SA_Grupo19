@@ -260,11 +260,16 @@ export default {
       this.$refs.loginForm.validate().then(async (success) => {
         if (success) {
           try {
+            let group = this.grupo;
+            if(this.userEmail === 'mail@editorial.com'){
+              group = "GRUPO19";
+            }
+
             const resp = await axios.post('http://35.209.160.141:5050/grupo19/usuario/login', {
               // DEBE SER GET EN LUGAR DE POST
               user: this.userEmail,
               password: this.password,
-              grupo: this.grupo,
+              grupo: group,
             });
             const userData = resp.data;
             userData.password = this.password;

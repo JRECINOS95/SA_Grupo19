@@ -216,7 +216,8 @@ export default {
       const { route } = useRouter();
       const productId = route.value.params.slug;
       try {
-        const resp = await axios.get(`http://34.72.218.226:7070/libro/${productId}`);
+        const userData = JSON.parse(localStorage.getItem('userData'));
+        const resp = await axios.get(`http://35.209.160.141:5050/grupo19/libroget/${productId}/${userData.grupo}`);
         product.value = resp.data;
       } catch (err) {
         product.value = undefined;
